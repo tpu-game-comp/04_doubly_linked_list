@@ -32,6 +32,7 @@ int main(int argc, char *argv[])
                 printf("%d\n", p->value);
                 header = p->next;
                 if(header) header->prev = NULL;
+                if(footer == p) footer = NULL;
                 free(p);
             }
         }else if(n == -100){
@@ -41,6 +42,7 @@ int main(int argc, char *argv[])
                 printf("%d\n", p->value);
                 footer = p->prev;
                 if(footer) footer->next = NULL;
+                if(header == p) header = NULL;
                 free(p);
             }
         }else if(0 < n){
@@ -62,7 +64,7 @@ int main(int argc, char *argv[])
             // 要素を末尾に追加
             list *p = (list*)malloc(sizeof(list));
             if(p){
-                p->value = n;
+                p->value = -n;
                 p->prev = footer;
                 p->next = NULL;
                 if(header == NULL) {
