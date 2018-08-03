@@ -10,7 +10,7 @@ typedef struct list{
  
 int main(int argc, char *argv[]) 
 {
-    char str[6];
+    char str[7];
     list *header =  NULL;
     list *footer =  NULL;
     
